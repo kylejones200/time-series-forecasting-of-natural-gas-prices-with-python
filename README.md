@@ -1,7 +1,7 @@
 # Time Series forecasting of natural gas prices with Python
 
-**Published:** 2023-10-26
-**Medium:** [https://medium.com/@kyle-t-jones/time-series-forecasting-of-natural-gas-prices-with-python-b21c0d11019d](https://medium.com/@kyle-t-jones/time-series-forecasting-of-natural-gas-prices-with-python-b21c0d11019d)
+Published: 2023-10-26
+Medium: [https://medium.com/@kyle-t-jones/time-series-forecasting-of-natural-gas-prices-with-python-b21c0d11019d](https://medium.com/@kyle-t-jones/time-series-forecasting-of-natural-gas-prices-with-python-b21c0d11019d)
 
 ## About
 

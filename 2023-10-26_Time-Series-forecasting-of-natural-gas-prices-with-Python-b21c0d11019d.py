@@ -31,7 +31,7 @@ np.random.seed(42)
 ticker = "NGUSD" #US natural gas
 base = 'https://financialmodelingprep.com/api/v3/'
 key = YOUR_KEY
-target = "{}historical-price-full/{}?apikey={}".format(base, ticker, key)
+target = f"{base}historical-price-full/{ticker}?apikey={key}"
 
 df = pd.read_json(target)
 df = pd.json_normalize(df['historical'])
@@ -67,7 +67,7 @@ for t in range(1, intervals):
 
 forecast_df = pd.DataFrame(price_list)
 
-forecast_df.plot(figsize=(10,6), legend=False, title = "{} Simulated Future Paths".format(iterations))
+forecast_df.plot(figsize=(10,6), legend=False, title = f"{iterations} Simulated Future Paths")
 
 # Plotting with a histogram
 
@@ -90,7 +90,7 @@ ax.axvline(np.mean(x), color='r')
 ax.axvline(mu+sigma*1.96, color='g', ls='--')
 ax.axvline(mu-sigma*1.96, color='g', ls='--')
 ax.axvline(S0)
-ax.set_xlabel('Predicted Price on {}'.format(pred_end_date))
+ax.set_xlabel(f'Predicted Price on {pred_end_date}')
 ax.set_ylabel('Probability density')
 ax.set_title(r'Histogram of {ticker}: $\mu={mu:.02f}$, $\sigma={sigma:.02f}$'.format(ticker = ticker, mu=mu, sigma=sigma))
 
