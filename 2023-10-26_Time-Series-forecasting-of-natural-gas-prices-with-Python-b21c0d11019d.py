@@ -13,6 +13,7 @@ import logging
 import matplotlib.pyplot as plt
 import numpy as np
 import pandas as pd
+np.random.seed(42)
 
 logger = logging.getLogger(__name__)
 logging.basicConfig(
@@ -24,7 +25,6 @@ logging.basicConfig(
 # getting historical data for US Natural Gas prices. 
 # This code calls the API and transforms the result into a DataFrame.
 
-np.random.seed(42)
 
 
 
