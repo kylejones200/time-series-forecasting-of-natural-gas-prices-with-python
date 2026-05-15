@@ -41,7 +41,7 @@ df.to_csv('data/NGUSD data.csv')
 df.head()
 
 #Plot of asset historical closing price
-df['adjClose'].plot(figsize=(10, 6), title = "Price of {} from {} to {}".format(ticker, df.index.min(), df.index.max()))
+df['adjClose'].plot(figsize=(10, 6), title = f"Price of {ticker} from {df.index.min()} to {df.index.max()}")
 
 pred_end_date = datetime.datetime(2023, 7, 20)
 forecast_dates = [d if d.isoweekday() in range(1, 6) else np.nan for d in pd.date_range(df.index.max(), pred_end_date)] 
@@ -92,7 +92,7 @@ ax.axvline(mu-sigma*1.96, color='g', ls='--')
 ax.axvline(S0)
 ax.set_xlabel(f'Predicted Price on {pred_end_date}')
 ax.set_ylabel('Probability density')
-ax.set_title(r'Histogram of {ticker}: $\mu={mu:.02f}$, $\sigma={sigma:.02f}$'.format(ticker = ticker, mu=mu, sigma=sigma))
+ax.set_title(rf'Histogram of {ticker}: $\mu={mu:.02f}$, $\sigma={sigma:.02f}$')
 
 # Tweak spacing to prevent clipping of ylabel
 fig.tight_layout()
@@ -133,8 +133,8 @@ tscv = TimeSeriesSplit(n_splits=5)
 idx = np.arange(len(X))
 train_idx, test_idx = list(tscv.split(idx))[ -1 ]
 train, test = X[train_idx], X[test_idx]
-history = [x for x in train]
-predictions = list()
+history = list(train)
+predictions = []
 
 for t in range(len(test)):
     model = ARIMA(history, order=(5,1,0))
@@ -146,7 +146,7 @@ for t in range(len(test)):
     pd.concat([history, obs])
 
 rmse = sqrt(mean_squared_error(test, predictions))
-logger.info('Test RMSE: %.3f' % rmse)
+logger.info(f'Test RMSE: {rmse:.3f}')
 plt.plot(test)
 plt.plot(predictions, color='red')
 plt.show()
