@@ -58,7 +58,7 @@ def get_jsonparsed_data(url):
     return json.loads(data)
 
 
-def main() -> None:
+def get_shell_and_brent_crude_data() -> None:
     shell = yf.Ticker("SHEL")
 
     brent = yf.Ticker("BNO")
@@ -150,6 +150,8 @@ def main() -> None:
 
     plt.show()
 
+
+def function_to_safely_download_data_with_retry_logi() -> None:
     end_date = datetime.datetime.now()
 
     start_date = end_date - datetime.timedelta(days=3 * 365)
@@ -241,6 +243,8 @@ def main() -> None:
 
     print("we can say that Brent crude prices Granger-cause Shell stock prices.")
 
+
+def get_shell_data() -> None:
     shell = investpy.get_stock_historical_data(
         stock="XOM",
         country="United States",
@@ -252,8 +256,12 @@ def main() -> None:
         commodity="Brent Oil", from_date="01/01/2020", to_date="01/01/2023"
     )
 
+
+def notebook_step_004() -> None:
     key = "<your_key_here>"
 
+
+def for_python_3_0_and_later() -> None:
     try:
         from urllib.request import urlopen
     except ImportError:
@@ -263,8 +271,12 @@ def main() -> None:
 
     print(get_jsonparsed_data(url))
 
+
+def notebook_step_006() -> None:
     url
 
+
+def set_your_api_key() -> None:
     end_date = datetime.now()
 
     start_date = end_date - timedelta(days=3 * 365)
@@ -372,6 +384,16 @@ def main() -> None:
     plt.grid(True)
 
     plt.show()
+
+
+def main() -> None:
+    get_shell_and_brent_crude_data()
+    function_to_safely_download_data_with_retry_logi()
+    get_shell_data()
+    notebook_step_004()
+    for_python_3_0_and_later()
+    notebook_step_006()
+    set_your_api_key()
 
 
 if __name__ == "__main__":
