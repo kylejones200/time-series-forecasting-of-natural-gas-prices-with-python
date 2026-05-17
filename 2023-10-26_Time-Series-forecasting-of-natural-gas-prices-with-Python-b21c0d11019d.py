@@ -148,9 +148,9 @@ def main():
         model_fit = model.fit()
         output = model_fit.forecast()
         yhat = output[0]
-        pd.concat([predictions, yhat])
+        predictions.append(yhat)
         obs = test[t]
-        pd.concat([history, obs])
+        history.append(obs)
 
     rmse = sqrt(mean_squared_error(test, predictions))
     logger.info(f"Test RMSE: {rmse:.3f}")
