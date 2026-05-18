@@ -3,6 +3,8 @@ name = "time-series-forecasting-of-natural-gas-prices-with"
 version = "0.1.0"
 requires-python = ">=3.12"
 dependencies = [
+    "pydantic>=2.10.0",
+    "pytest>=8.0",
     "certifi>=2026.4.22",
     "investpy>=1.0.8",
     "matplotlib>=3.10.9",
@@ -11,3 +13,7 @@ dependencies = [
     "statsmodels>=0.14.6",
     "yfinance>=1.3.0",
 ]
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+pythonpath = ["."]
